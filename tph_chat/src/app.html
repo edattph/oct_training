@@ -1,0 +1,72 @@
+<!--
+IMPORTANT:
+Any resources from this project should be referenced using SRC_PATH preprocessor var.
+See examples below in the boilerplate code
+-->
+
+<!--
+1. HEADER
+Everything inside this cot-app:head tag will be loaded at the end of the page's HEAD tag.
+It should contain stylesheet references (and possibly other stuff) that this application requires.
+-->
+<!-- cot-app:head -->
+
+<!-- The useref gulp plugin will concatenate all files inside of this build tag and place the resulting file at the specified path: -->
+<!--@exec startBuildTagWithCacheBuster('styles/main.css')-->
+<!-- CoreJS uses the following tag to inject bower_components stylesheet file references: -->
+<!-- core:css -->
+<!-- endinject -->
+
+<!-- place your application stylesheet references here: -->
+
+<!-- endbuild -->
+<!--@exec startBuildTagWithCacheBuster('styles/core_print.css', 'media="print"')-->
+<!-- CoreJS uses the following tag to inject bower_components print-only stylesheet file references: -->
+<!-- core_print:css -->
+<!-- endinject -->
+
+<!-- place any application print-only stylesheet references here -->
+
+<!-- endbuild -->
+<!-- cot-app:head end-->
+
+<!--
+2. BODY
+Everything inside this cot-app:body tag will be loaded inside the webpage
+It should contain the HTML elements that make up the visual portion of this application.
+IMPORTANT:
+It is best to avoid the use of IDs on HTML elements because
+- They could collide with other elements if you are not careful.
+- Embedded apps could be placed on the same page more than once.
+-->
+<!-- cot-app:body -->
+<!-- <div id="comm100-button-23"></div> -->
+<div class="helensWish">
+
+</div>
+<!-- cot-app:body end-->
+
+<!--
+3. FOOTER
+Everything inside the cot-app:footer tag will be loaded at the end of the page's BODY tag.
+It should contain script references that this application requires.
+-->
+<!-- cot-app:footer -->
+<!-- The useref gulp plugin will concatenate all files inside of this tag and place the resulting file at the specified path -->
+<!--@exec startBuildTagWithCacheBuster('scripts/main.js')-->
+<!-- CoreJS uses the following tag to inject bower_components script file references: -->
+<!-- core:js -->
+<!-- endinject -->
+
+<!-- place your application script references here: -->
+<script type="text/javascript" src="<!-- @echo SRC_PATH -->/scripts/main.js"></script>
+
+<!-- endbuild -->
+<!--@if ENV!='prod'-->
+<script type="text/javascript">
+  console.log('tph_chat running on <!--@echo ENV--> environment');
+  console.log('tph_chat qa release: <!--@echo QA_RELEASE-->');
+  console.log('tph_chat build: <!--@echo BUILD_ID-->');
+</script>
+<!--@endif-->
+<!-- cot-app:footer end-->

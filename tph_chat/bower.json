@@ -1,0 +1,11 @@
+{
+  "name": "tph_chat",
+  "description": "A chat App linker for the TPH",
+  "authors": [
+    "Ed, Gordon"
+  ],
+  "private": true,
+  "dependencies": {
+    "core": "https://github.com/CityofToronto/corejs.git#5.0.1"
+  }
+}
